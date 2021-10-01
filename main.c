@@ -1,13 +1,16 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "galoid.h"
 
 // Matrix ops
 char **CreateMatrix(char *input);
-char *RotateRight(char *word);
+char  *RotateRight(char *word);
 
 
 // Difusion funcs
+char **ShiftRows(char **matrix);
+char **MixColumns(char **matrix);
 
 // Confusion funcs
 // (?)
@@ -25,11 +28,7 @@ int main(int argc, char *argv[])
     //rotate
     printf("---\n");
 
-    for(int i=1;i<4;i++){
-        for(int j=0;j<4-i;j++){
-            matriz[i] = RotateRight( matriz[i] );
-        } 
-    }
+    matriz = ShiftRows( matriz );
     for(int i=0;i<4;i++){ printf("- %s\n", matriz[i] ); }
 
 
@@ -38,6 +37,8 @@ int main(int argc, char *argv[])
 }
 
 char **CreateMatrix(char *input){
+    /* Parseamos 1 string de 32 bytes en 4 filas de 8 bytes
+       ( Osea una matriz 4x4 donde cada elemento son 2 chars) */
     char **matriz = malloc(4 * sizeof(char *)); 
     for (int i=0;i<4;i++) {
         matriz[i] = malloc(8* sizeof(char));    
@@ -48,9 +49,28 @@ char **CreateMatrix(char *input){
 }
 
 char *RotateRight(char *word){
+    /* Coloca el utimo char al inicio de la palabra */
     char *result = malloc( 8*sizeof(char) );
     result[0] = word[7];
-    return strncat(result, word, 7);
 
+    return strncat(result, word, 7);
 }
 
+char **ShiftRows(char **matriz){
+    /* Rota las de la siguiente manera
+        fila 1 -> 0 Shifts
+        fila 2 -> 3 Shifts
+        fila 3 -> 2 Shifts
+        fila 4 -> 1 Shifts */
+    for(int i=1;i<4;i++){
+        for(int j=0;j<4-i;j++){
+            matriz[i] = RotateRight( matriz[i] );
+        } 
+    }
+
+    return matriz;
+}
+
+char **MixColumns(char **matrix){
+
+}
