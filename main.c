@@ -11,7 +11,6 @@
 	c += d,  b ^= c,  b = ROTL(b, 7))
 #define ROUNDS 10
 
-
 char *AddPadding(char const *msg, size_t msg_len, size_t new_len);
 uint32_t *GenState(char *msg);
 uint32_t *UpdateState(uint8_t msg[16]);
@@ -21,10 +20,14 @@ void ChaChaState(uint32_t out[16], uint32_t const in[16]);
 static uint32_t pack4(const uint8_t *a);
 
 int main(){ 
+    char *msg = malloc(1024*sizeof(char));
+    scanf("%s", msg);
 
+        /*
     char *msg = malloc( 33*sizeof(char) );
     //msg = "holaholaholaholaholaholaholaholaholaholaholaholaholaholaholaholaholahola"; 
     msg = "ba";
+    */
     if ( strlen(msg) < 33 )
        msg = AddPadding(msg, strlen(msg), 32);
 
@@ -41,6 +44,7 @@ int main(){
     for(int i=0;i<8;i++)
         printf("%2x",input[i]);
     printf("\n");
+
 }
 
 // ** asume que msg_len >= 1
@@ -115,5 +119,5 @@ static uint32_t pack4(const uint8_t *a){
     res |= (uint32_t)a[2] << 16;
     res |= (uint32_t)a[3] << 24;
 
-    return
+    return res;
 }

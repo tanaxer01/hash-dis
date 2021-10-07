@@ -10,11 +10,15 @@
   - (Update) Es la base para BLAKE
 
 ## Restricciones
-  - [+] el output debe ser >= 25 chars.
-  - [+] Debe tener gran difusión.
+  - [*] el output debe ser >= 25 chars.
+  - [*] Debe tener gran difusión.
   - [ ] % de colisionar debe ser complejo *
-  - [+] Procesamiento debe ser "rápido"
+  - [*] Procesamiento debe ser "rápido"
  
+## Falta
+  - [ ] Ordenar cosa.
+  - [ ] Terminar el input de texto.
+  - [ ] Input de archivo.
 
 #### Resistencia a Colisiones
 Para saber la probabilidad de una colision, nos podemos apoyar en la "paradoja del cumpleaños".
@@ -24,3 +28,5 @@ Donde por ej. con X=50% solamente necesitamos 23 personas. ( Revisar libro )
 
 > "The most important consequence of the birthday attack is that the num of messages needed to
 > find a collision is roughly equal to the square root of the num of possible output  values"
+
+
