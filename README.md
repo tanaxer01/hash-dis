@@ -19,6 +19,7 @@
   - [ ] Ordenar cosa.
   - [ ] Terminar el input de texto.
   - [ ] Input de archivo.
+  - [ ] Arreglar como imprime el hex
 
 #### Resistencia a Colisiones
 Para saber la probabilidad de una colision, nos podemos apoyar en la "paradoja del cumpleaños".
