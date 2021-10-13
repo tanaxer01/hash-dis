@@ -1,6 +1,9 @@
 # Cant Hash Dis
 
 ## Funcionamiento
+>Modo de uso chachash.c:
+>   [NO FLAGS] => varios strings a hashear ( separados por ' ')
+>   -f [FILE] hashear valores de un archivo
 ## Ideas
 ### ~~Stealing AES~~
 ### Cha Cha
